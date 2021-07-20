@@ -1,0 +1,6 @@
+<sections>
+	<section name="UserProfile" personal="true" readonly="false" local="false" lazy="false" />
+	<section name="LocalProfile" personal="true" readonly="false" local="true" lazy="false" />
+	<section name="GlobalConfig" personal="false" readonly="true" local="false" lazy="false" />
+	<section name="Level22Config" personal="false" readonly="true" local="false" lazy="true" />
+</sections>
