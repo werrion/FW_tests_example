@@ -1,5 +1,5 @@
 import subprocess
-from Params import Keys, Commands, Sections, Var_name, Values
+from models.Params import Keys, Commands, Sections, Var_name, Values
 script_path = r"C:\Users\oleg.krivov\Desktop\FW_tests_example\Util\ABUtility.exe"
 
 def del_inf_result(text):
@@ -8,7 +8,7 @@ def del_inf_result(text):
     return res
 
 
-def test_set_variable_type_int(key_1, key_2, key_3 ,command,section, var_name, value):
+def test_set_variable_type_int(key_1, key_2, key_3, command, section, var_name, value):
     result = subprocess.run([script_path,
                              key_1, key_2, key_3, command, section, var_name, value],
                             stdout=subprocess.PIPE, encoding='utf-8')
