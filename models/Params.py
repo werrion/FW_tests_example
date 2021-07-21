@@ -31,13 +31,35 @@ class Sections:
 
 class Var_name:
     """Name sections for tests"""
+    name_0 = ''
     name_1 = 'money'
     name_2 = 'money_user'
-    name_3 = '!@#$%^'
+    name_3 = 'award01'
+    name_4 = 'chest(15)'
+    name_5 = 'chest.21'
+    name_6 = '!@#$%^'
+    name_7 = '12345'
+    name_8 = '........'
+    name_9 = 'aw..23'
+
+class Section_var:
+    """Name sections for tests"""
+    section_var_0 = ''
+    section_var_1 = 'UserProfile.money'
+    section_var_2 = 'UserProfile.money_user'
+    section_var_3 = 'UserProfile.award01'
+    section_var_4 = 'UserProfile.chest(15)'
+    section_var_5 = 'UserProfile.chest.21'
+    section_var_6 = 'UserProfile.!@#$%^'
+    section_var_7 = 'UserProfile.12345'
+    section_var_8 = 'UserProfile.........'
+    section_var_9 = 'UserProfile.aw..23'
+
 
 class Values:
     """different values for tests"""
-    int_1 = '1'
+    int_0 = ''
+    int_1 = '0'
     int_2 = '111'
     int_3 = '10003849234783246273647236463487362837'
     int_4 = '-1'

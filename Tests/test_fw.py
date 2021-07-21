@@ -6,11 +6,13 @@ def del_inf_result(text):
     return res
 def test_set_variable_type_int():
     result = subprocess.run([script_path,
-                             "0", "1", "0", "set", "UserProfile", "money", "222"],
+                             "0", "1", "0", "set", "UserProfile", "money", "0"],
                             stdout=subprocess.PIPE, encoding='utf-8')
     print("Тест test_set_variable_type_int", result.stdout)
+    print(del_inf_result(result.stdout)[27:49])
     assert del_inf_result(result.stdout)[7:24] == "UserProfile.money"
-    assert del_inf_result(result.stdout)[27:51] == "VALUE is setted to - 222"
+    assert del_inf_result(result.stdout)[27:49] == "VALUE is setted to - 0"
+
 def test_set_variable_type_float():
     result = subprocess.run([script_path,
                              "0", "1", "0", "set", "UserProfile", "exp", "1.234"],
@@ -50,9 +52,9 @@ def test_set_variable_type_none():
 
 if __name__ == '__main__':
     test_set_variable_type_int()
-    test_set_variable_type_float()
-    test_set_variable_type_array()
-    test_set_variable_type_dict()
+    # test_set_variable_type_float()
+    # test_set_variable_type_array()
+    # test_set_variable_type_dict()
     #test_get_variable_type_int()
     #test_get_variable_type_array()
     #test_set_variable_type_none()
