@@ -1,26 +1,18 @@
 import subprocess
+script_path = r"C:\Users\oleg.krivov\Desktop\FW_tests_example\Util\ABUtility.exe"
+key_list = ["0", "1", "0"]
+def del_inf_result(text):
+    lines = text.split('==========================================')
+    res = lines[1]
+    return res
 
-#result = subprocess.run([r"C:\Users\oleg.krivov\Desktop\FW_tests_example\Util\ABUtility.exe",
-                        # "1","1","1","set","system.userprofile.money","222"], stdout=subprocess.PIPE, encoding='utf-8')
-#print("Тест 1", result.stdout)
-#print(result.stdout[41:65])
 
-#assert result.stdout[41:65] == "VALUE is setted to - 222"
-def test_set_variable_type_int():
-    result = subprocess.run([r"C:\Users\oleg.krivov\Desktop\FW_tests_example\Util\ABUtility.exe",
-                             "1","1","0","set","system.userprofile.money","222"],
-                             stdout=subprocess.PIPE, encoding='utf-8')
-    print("Тест 1 - Set Var", result.stdout)
-
-def test_Get_variable():
-    result = subprocess.run([r"C:\Users\oleg.krivov\Desktop\FW_tests_example\Util\ABUtility.exe",
-                             "1","1","0","get","system.userprofile.money"],
+def test_set_variable_type_int(key_config):
+    result = subprocess.run([script_path,
+                             *key_config, "set", "UserProfile", "money", "222"],
                             stdout=subprocess.PIPE, encoding='utf-8')
-    print("Тест 2 - Get var", result.stdout)
+    print("Тест test_set_variable_type_int", result.stdout)
+    assert del_inf_result(result.stdout)[7:24] == "UserProfile.money"
+    assert del_inf_result(result.stdout)[27:51] == "VALUE is setted to - 222"
 
-
-
-
-
-test_set_variable_type_int()
-test_Get_variable()
+test_set_variable_type_int(key_list)

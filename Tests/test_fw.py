@@ -32,11 +32,11 @@ def test_set_variable_type_dict():
     print("Тест test_set_variable_type_array", result.stdout)
     assert del_inf_result(result.stdout)[7:25] == "UserProfile.awards"
     assert del_inf_result(result.stdout)[28:71] == "VALUE is setted to - {'key1': 1, 'key2': 2}"
-def test_set_variable_type_nan():
+def test_set_variable_type_none():
     result = subprocess.run([script_path,
                              "0", "1", "0", "set", "UserProfile", "reser5", ""],
                             stdout=subprocess.PIPE, encoding='utf-8')
-    print("Тест test_set_variable_type_nan", result.stdout)
+    print("Тест test_set_variable_type_none", result.stdout)
     # print(del_inf_result(result.stdout)[28:49])
     # assert del_inf_result(result.stdout)[7:25] == "UserProfile.reserv"
     # assert del_inf_result(result.stdout)[28:49] == "VALUE is setted to - "
@@ -50,12 +50,12 @@ def test_set_variable_type_nan():
 
 if __name__ == '__main__':
     test_set_variable_type_int()
-    #test_set_variable_type_float()
-    #test_set_variable_type_array()
-    #test_set_variable_type_dict()
-    # test_get_variable_type_int()
-    # test_get_variable_type_array()
-    test_set_variable_type_nan()
+    test_set_variable_type_float()
+    test_set_variable_type_array()
+    test_set_variable_type_dict()
+    #test_get_variable_type_int()
+    #test_get_variable_type_array()
+    #test_set_variable_type_none()
 
 
 

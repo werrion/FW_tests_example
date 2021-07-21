@@ -1,28 +1,19 @@
 import subprocess
+from models.Params import Keys, Commands, Sections, Var_name, Values
+script_path = r"C:\Users\oleg.krivov\Desktop\FW_tests_example\Util\ABUtility.exe"
 
-# def test_set_2variable_type_int():
-#     result = subprocess.run([r"C:\Users\oleg.krivov\Desktop\FW_tests_example\Util\ABUtility.exe",
-#                              "1","1","0","set","system.userprofile.money","222",
-#                              "set","system.userprofile.exp","111"],
-#                              stdout=subprocess.PIPE, encoding='utf-8')
-#     print("Тест 1 - Set Var", result.stdout)
-#
-# def test_Get_variable():
-#     result = subprocess.run([r"C:\Users\oleg.krivov\Desktop\FW_tests_example\Util\ABUtility.exe",
-#                              "1", "1", "0", "get", "system.userprofile.money",
-#                              "get", "system.userprofile.exp"],
-#                             stdout=subprocess.PIPE, encoding='utf-8')
-#     print("Тест 2 - Get var", result.stdout)
+def del_inf_result(text):
+    lines = text.split('==========================================')
+    res = lines[1]
+    return res
 
-def test_Set_variable_dict():
-    result = subprocess.run([r"C:\Users\oleg.krivov\Desktop\FW_tests_example\Util\ABUtility.exe",
-                             "0", "1", "0", "set", "system.userprofile","money","11",
-                             "gettype", "system.userprofile.money"],
+
+def test_set_variable_type_int(key_1, key_2, key_3 ,command,section, var_name, value):
+    result = subprocess.run([script_path,
+                             key_1, key_2, key_3, command, section, var_name, value],
                             stdout=subprocess.PIPE, encoding='utf-8')
-    print("Тест 2 - Get var", result.stdout)
+    print("Тест test_set_variable_type_int", result.stdout)
+    assert del_inf_result(result.stdout)[7:24] == "UserProfile.money"
+    assert del_inf_result(result.stdout)[27:51] == "VALUE is setted to - 111"
 
-test_Set_variable_dict()
-
-# test_set_2variable_type_int()
-# test_Get_variable()
-#assert result.stdout[41:65] == "1VALUE is setted to - 222"
+test_set_variable_type_int(Keys.network_mode_offline, Keys.timer_on, Keys.wipe_off, Commands.set, Sections.userprofile, Var_name.name_1, Values.int_2)
