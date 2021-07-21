@@ -1,5 +1,5 @@
 import subprocess
-from models.Params import Keys, Commands, Sections, Var_name, Values
+from Params import Keys, Commands, Sections, Var_name, Values
 script_path = r"C:\Users\oleg.krivov\Desktop\FW_tests_example\Util\ABUtility.exe"
 
 def del_inf_result(text):
