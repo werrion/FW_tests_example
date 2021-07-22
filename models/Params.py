@@ -1,21 +1,14 @@
-class Keys:
-    """Three first arguments in list are flags:
-    1. Framework network mode (1 - online, 0 - offline)
-    2. Turn on/off timer for command execution time
-    3. Clear saved progress - if "1" - will be erase profile before execute command"""
-    network_mode_online = '1'
-    network_mode_offline = '0'
-    timer_on = '1'
-    timer_off = '0'
-    wipe_on = '1'
-    wipe_off = '0'
+
+class Key_param:
+    offline_timing_on_without_wipe = ["network", "0", "timing", "1"]
+    offline_timing_off_without_wipe = ["network", "0", "timing", "0"]
+    offline_timing_on_with_wipe = ["network", "0", "timing", "1", "wipe"]
+    online_timing_on_without_wipe = ["network 1", "timing", "1"]
+    online_timing_off_without_wipe = ["network 1", "timing", "0"]
+    online_timing_on_with_wipe = ["network", "1", "timing", "1", "wipe"]
 
 
 class Commands:
-    """Three first arguments in list are flags:
-    1. Framework network mode (1 - online, 0 - offline)
-    2. Turn on/off timer for command execution time
-    3. Clear saved progress - if "1" - will be erase profile before execute command"""
     set = 'set'
     get = 'get'
     set_type = 'settype'
@@ -30,7 +23,6 @@ class Sections:
 
 
 class Var_name:
-    """Name sections for tests"""
     name_0 = ''
     name_1 = 'money'
     name_2 = 'money_user'
@@ -43,7 +35,6 @@ class Var_name:
     name_9 = 'aw..23'
 
 class Section_var:
-    """Name sections for tests"""
     section_var_0 = ''
     section_var_1 = 'UserProfile.money'
     section_var_2 = 'UserProfile.money_user'
@@ -80,3 +71,9 @@ class Values:
     dict_2 = 'key : val, key1 : val1'
     binary_1 = 'path1'
     binary_2 = 'path2'
+
+
+class Timing_val:
+    """Сommand execution time in ms """
+    time1 = '1'
+    time5 = '5'
